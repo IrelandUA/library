@@ -1,0 +1,83 @@
+
+PROJECT TREE
+
+FRONTEND PART-------------------------------------------------
+
+my-react-app/
+├── src/
+│   ├── api/
+│   │   ├── books.api.ts -> createAsyncThunk - server request function
+│   │   └── fetchList.api.ts - List of requests to the server.
+│   ├── app/
+│   │   ├── store.ts - store of projext
+│   │   └── rootReducer.ts - list of reducer
+│   ├── components/
+│   │   ├── FetchStateIndicator.tsx - server request status display component.
+│   │   ├── Header.tsx
+│   │   └── Menu.tsx
+│   ├── features/
+│   │   ├── author/
+│   │   │   └── Author.tsx - Author display block
+│   │   ├── books/
+│   │   │   ├── createBooksAll/
+│   │   │   │   ├── CreateBooksAll.tsx - Button to create all books
+│   │   │   │   └── createBooksAllSlice.ts - state for fetch Button to create all books
+│   │   │   ├── createBooksByThousand/
+│   │   │   │   ├── CreateBooksByThousand.tsx - Button to create selected thousand books
+│   │   │   │   └── createBooksByThousandSlice.ts - state fetch for Button to create selected thousand books
+│   │   │   ├── createBooksStop/
+│   │   │   │   ├── CreateBooksStop.tsx - Stop Book Creation Button, stops book creation, works for all book creation buttons
+│   │   │   │   └── createBooksStopSlice.ts - state for fetch Stop Book Creation Button, stops book creation, works for all book creation buttons
+│   │   │   ├── deleteBooksAll/
+│   │   │   │   ├── deleteBooksAll.tsx - Delete all books button
+│   │   │   │   └── deleteBooksAllSlice.ts - state for fetch Delete all books button
+│   │   │   ├── deleteBooksByThousand/
+│   │   │   │   ├── deleteBooksByThousand.tsx - Button to delete selected thousand books
+│   │   │   │   └── deleteBooksByThousandSlice.ts - state for fetch Button to delete selected thousand books
+│   │   │   ├── BooksList.tsx - Book List Table
+│   │   │   ├── booksSlice.ts - state for Book List
+│   │   │   └── getBooksByThousandSlice.ts state for fetch Get Book List
+│   │   ├── booksLength/
+│   │   │   ├── checkBooksLength/
+│   │   │   │   ├── CheckBooksLength.tsx - Book count parsing button
+│   │   │   │   └── checkBooksLengthSlice.ts - state for fetch Book count parsing button
+│   │   │   ├── getBooksLength/
+│   │   │   │   ├── GetBooksLength.tsx - Button to get the number of books
+│   │   │   │   ├── getBooksLengthSlice.ts - state for fetch Button to get the number of books
+│   │   │   │   └── booksLengthSlice.ts - state for number of books
+│   │   │   ├── BooksLength.tsx - Block displaying the number of books created and parsed
+│   │   │   ├── booksLengthCreatedSlice.ts - state for BooksLength
+│   │   │   └── getBooksLengthCreatedSlice.ts - state for fetch for BooksLength
+│   │   ├── buttonListByThousand/
+│   │   │   ├── ButtonListByThousand.tsx - List of buttons for a thousand books, to select the exact thousand
+│   │   │   └── setThousandNumberSlice.ts - state for List of buttons for a thousand books, to select the exact thousand
+│   │   ├── currentThousandMenu/
+│   │   │   └── CurrentThousandMenu.tsx - Menu for selected thousand books
+│   │   ├── parsers/
+│   │   │   ├── parsBookById/
+│   │   │   │   ├── ParsBookById.tsx - Button Parse a book by id
+│   │   │   │   └── parsBookByIdSlice.ts - state for fetch Parse a book by id
+│   │   │   ├── parsBooksAll/
+│   │   │   │   ├── ParsBooksAll.tsx - Button Parse books all
+│   │   │   │   └── parsBooksAllSlice.ts - state for fetch Parse books all
+│   │   │   ├── parsBooksByThousand/
+│   │   │   │   ├── ParsBooksByThousand.tsx - Button Parse books by thousand
+│   │   │   │   └── parsBooksByThousandSlice.ts - state for fetch Parse books by thousand
+│   │   │   ├── parsBooksStop/
+│   │   │   │   ├── ParsBooksAll.tsx - Stop parsing button
+│   │   │   │   └── parsBooksAllSlice.ts - state for fetch Stop parsing button
+│   ├── types/
+│   │   ├── author.interface.ts
+│   │   ├── book.interface.ts
+│   │   ├── dataState.interface.ts -> BooksCreatedLengthStateInterface, BooksLengthStateInterface, BooksStateInterface, BooksFetchStateInterface.
+│   │   ├── error.interface.ts
+│   │   └── fetchState.interface.ts
+│   ├── utils/
+│   │   ├── formatDate.ts - Date formatting function for display.
+│   │   ├── fetchStateHandlers.ts - Functions for handling states - handlePending, handleFulfilled, handleRejected, resetState.
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── index.html
+├── package.json
