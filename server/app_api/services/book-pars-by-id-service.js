@@ -1,7 +1,7 @@
 const DBBook = require("../models/book-model");
 const DBAuthor = require("../models/author-model");
-const parsBookByNumberPlaywright = require("./parsers/pars-book-by-number-playwright");
-const parsBookByNumberCheerio = require("./parsers/pars-book-by-number-cheerio");
+const parsBookByNumberPlaywright = require("./parsers/pars-book-by-id-playwright");
+const parsBookByNumberCheerio = require("./parsers/pars-book-by-id-cheerio");
 const ApiError = require("../exceptions/api-error");
 
 class BookParsByIdService {
@@ -14,8 +14,10 @@ class BookParsByIdService {
       parsed: false,
     };
     newBook = await parsBookByNumberCheerio.pars(candidate);
+    console.log("newBook cheerio", newBook);
     if (newBook.parsed === false) {
       newBook = await parsBookByNumberPlaywright.pars(candidate);
+      console.log("newBook playwright", newBook);
     }
     if (newBook.author.length > 0) {
       candidate.author = [];
@@ -48,7 +50,6 @@ class BookParsByIdService {
         : "";
     candidate.image =
       newBook?.image && newBook.image.length > 0 ? newBook.image : "";
-    console.log("Book before saving - ", candidate);
     return candidate.save();
   }
 }

@@ -73,6 +73,10 @@ class BookService {
     return DB.findById(id);
   }
 
+  async getByNumber(number) {
+    return DB.findOne({ number });
+  }
+
   async deleteAll() {
     return DB.deleteMany();
   }

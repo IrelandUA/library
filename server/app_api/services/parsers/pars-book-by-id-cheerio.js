@@ -45,7 +45,9 @@ module.exports.pars = async function (candidate) {
           });
         }
       }
-      newBook.title = key === "Title" ? $(tr).find("td").text().trim() : "";
+      if (key === "Title") {
+        newBook.title = $(tr).find("td").text().trim();
+      }
     });
 
     const readNowHref = $(
@@ -57,7 +59,10 @@ module.exports.pars = async function (candidate) {
         : "";
     const imageHref = $("#cover img").attr("src");
     newBook.image = imageHref && imageHref.length > 0 ? imageHref.trim() : "";
-    newBook.parsed = newBook.title.length > 0;
+    newBook.parsed = true;
+    if (newBook.title.length > 0) {
+      newBook.parsed = true;
+    }
     return newBook;
   } catch (e) {
     console.error("Error pars Books length!");
